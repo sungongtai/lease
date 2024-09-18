@@ -4,4 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.lease.web.admin.mapper.GraphInfoMapper">
 
+    <select id="selectByItemTypeAndId" resultType="com.atguigu.lease.web.admin.vo.graph.GraphVo">
+        select name, url from graph_info where is_deleted = 0 and item_type = #{itemType} and item_id = #{id};
+    </select>
 </mapper>
