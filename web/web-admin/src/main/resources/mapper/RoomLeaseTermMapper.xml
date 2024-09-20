@@ -4,4 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.lease.web.admin.mapper.RoomLeaseTermMapper">
 
+    <select id="getLeaseTermByRoomId" resultType="com.atguigu.lease.model.entity.LeaseTerm">
+        select * from room_lease_term where room_id = #{id}
+    </select>
 </mapper>
