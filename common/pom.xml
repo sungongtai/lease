@@ -75,6 +75,13 @@
             <scope>runtime</scope>
         </dependency>
 
+
+        <!-- 短信服务-->
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>dysmsapi20170525</artifactId>
+        </dependency>
+
     </dependencies>
 
 

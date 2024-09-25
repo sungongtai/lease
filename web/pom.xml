@@ -68,6 +68,11 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.aliyun</groupId>
+            <artifactId>dysmsapi20170525</artifactId>
+        </dependency>
+
     </dependencies>
 
     <!-- Spring Boot Maven插件，用于打包可执行的JAR文件 -->
