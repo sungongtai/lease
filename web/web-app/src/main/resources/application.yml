@@ -30,9 +30,3 @@ mybatis-plus:
 
 springdoc:
   default-flat-param-object: true
-
-aliyun:
-  sms:
-    access-key-id: LTAI5tMSwVfUSoRxqoQVqYFq
-    access-key-secret: SCkpOVrwmEfE9k0qQ93l5DO8aIEGy5
-    endpoint: dysmsapi.aliyuncs.com
