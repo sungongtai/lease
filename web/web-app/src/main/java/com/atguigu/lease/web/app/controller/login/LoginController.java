@@ -1,6 +1,7 @@
 package com.atguigu.lease.web.app.controller.login;
 
 
+import com.atguigu.lease.common.login.LoginUserHolder;
 import com.atguigu.lease.common.result.Result;
 import com.atguigu.lease.web.app.service.LoginService;
 import com.atguigu.lease.web.app.vo.user.LoginVo;
@@ -28,13 +29,16 @@ public class LoginController {
     @PostMapping("login")
     @Operation(summary = "登录")
     public Result<String> login(@RequestBody LoginVo loginVo) {
-        return Result.ok();
+        String token = loginService.login(loginVo);
+        return Result.ok(token);
     }
 
     @GetMapping("info")
     @Operation(summary = "获取登录用户信息")
     public Result<UserInfoVo> info() {
-        return Result.ok();
+        Long userId = LoginUserHolder.getLoginUser().getUserId();
+        UserInfoVo userInfoVo = loginService.getLoginUserById(userId);
+        return Result.ok(userInfoVo);
     }
 }
 
