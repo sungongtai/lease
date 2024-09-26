@@ -89,6 +89,35 @@
 
     </select>
     <select id="getMinRentByApartmentId" resultType="java.math.BigDecimal">
-        select min(rent) from room_info where is_deleted = 0 and apartment_id = #{id}
+        select min(rent)
+        from room_info
+        where is_deleted = 0
+          and is_release = 1
+          and apartment_id = #{id}
+    </select>
+    <select id="pageItemByApartmentId" resultMap="RoomItemVoMap">
+        select ri.id,
+               ri.room_number,
+               ri.rent,
+               ai.id apartment_id,
+               ai.name,
+               ai.introduction,
+               ai.district_id,
+               ai.district_name,
+               ai.city_id,
+               ai.city_name,
+               ai.province_id,
+               ai.province_name,
+               ai.address_detail,
+               ai.latitude,
+               ai.longitude,
+               ai.phone,
+               ai.is_release
+        from room_info ri
+                 left join apartment_info ai on ri.apartment_id = ai.id and ai.is_deleted = 0
+        where ri.apartment_id = #{id}
+          and ri.is_deleted = 0
+          and ri.is_release = 1
+          and ri.id not in (select room_id from lease_agreement where is_deleted = 0 and status in (2, 5))
     </select>
 </mapper>
