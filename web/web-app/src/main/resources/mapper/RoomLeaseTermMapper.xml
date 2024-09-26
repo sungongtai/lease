@@ -4,4 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atguigu.lease.web.app.mapper.RoomLeaseTermMapper">
 
+    <select id="getLeaseTermByRoomId" resultType="com.atguigu.lease.model.entity.LeaseTerm">
+        select id, month_count, unit from lease_term where is_deleted = 0 and id in (select lease_term_id from room_lease_term where is_deleted = 0 and room_id = #{id})
+    </select>
 </mapper>

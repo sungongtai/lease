@@ -1,7 +1,10 @@
 package com.atguigu.lease.web.app.mapper;
 
 import com.atguigu.lease.model.entity.RoomAttrValue;
+import com.atguigu.lease.web.app.vo.attr.AttrValueVo;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+
+import java.util.List;
 
 /**
 * @author liubo
@@ -11,6 +14,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 */
 public interface RoomAttrValueMapper extends BaseMapper<RoomAttrValue> {
 
+    List<AttrValueVo> getAttrValueVoByRoomId(Long id);
 }
 
 
