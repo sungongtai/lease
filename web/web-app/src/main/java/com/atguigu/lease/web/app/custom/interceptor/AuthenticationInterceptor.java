@@ -18,7 +18,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
 
         Claims claims = JwtUtil.parseToken(token);
         Long userId = claims.get("userId", Long.class);
-        String username = claims.get("username", String.class);
+        String username = claims.get("userName", String.class);
         LoginUserHolder.setLoginUser(new LoginUser(userId, username));
 
         return true;
