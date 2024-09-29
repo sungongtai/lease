@@ -4,6 +4,7 @@ import com.atguigu.lease.model.entity.ApartmentInfo;
 import com.atguigu.lease.model.entity.LeaseAgreement;
 import com.atguigu.lease.model.entity.LeaseTerm;
 import com.atguigu.lease.model.entity.PaymentType;
+import com.atguigu.lease.model.enums.LeaseStatus;
 import com.atguigu.lease.web.app.mapper.LeaseAgreementMapper;
 import com.atguigu.lease.web.app.service.*;
 import com.atguigu.lease.web.app.vo.agreement.AgreementDetailVo;
@@ -11,6 +12,7 @@ import com.atguigu.lease.web.app.vo.agreement.AgreementItemVo;
 import com.atguigu.lease.web.app.vo.apartment.ApartmentDetailVo;
 import com.atguigu.lease.web.app.vo.room.RoomDetailVo;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -67,6 +69,13 @@ public class LeaseAgreementServiceImpl extends ServiceImpl<LeaseAgreementMapper,
         result.setLeaseTermUnit(leaseTerm.getUnit());
 
         return result;
+    }
+
+    @Override
+    public void updateStatusById(Long id, LeaseStatus leaseStatus) {
+        LambdaUpdateWrapper<LeaseAgreement> leaseAgreementLambdaUpdateWrapper = new LambdaUpdateWrapper<>();
+        leaseAgreementLambdaUpdateWrapper.eq(LeaseAgreement::getId, id).set(LeaseAgreement::getStatus, leaseStatus);
+        super.update(leaseAgreementLambdaUpdateWrapper);
     }
 }
 

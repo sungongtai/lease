@@ -40,7 +40,7 @@
         from room_info ri
                  left join apartment_info ai on ri.apartment_id = ai.id and ai.is_deleted = 0
         <where>
-            where ri.is_deleted = 0
+            ri.is_deleted = 0
             and ri.is_release = 1
             and ri.id not in (select room_id from lease_agreement where is_deleted = 0 and status in (2, 5))
             <if test="queryVo.provinceId != null">

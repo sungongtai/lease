@@ -76,7 +76,7 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
     @Override
     public void saveOrUpdateRoom(RoomSubmitVo roomSubmitVo) {
         boolean isUpdate = roomSubmitVo.getId() != null;
-        super.save(roomSubmitVo);
+        super.saveOrUpdate(roomSubmitVo);
 
         if (isUpdate) {
             // 删除图片列表
@@ -117,7 +117,7 @@ public class RoomInfoServiceImpl extends ServiceImpl<RoomInfoMapper, RoomInfo>
             for (GraphVo graphVo : graphVoList) {
                 GraphInfo graphInfo = new GraphInfo();
                 graphInfo.setName(graphVo.getName());
-                graphInfo.setUrl(graphVo.getName());
+                graphInfo.setUrl(graphVo.getUrl());
                 graphInfo.setItemId(roomSubmitVo.getId());
                 graphInfo.setItemType(ItemType.ROOM);
                 graphInfoList.add(graphInfo);
