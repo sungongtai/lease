@@ -9,7 +9,7 @@
                fv.name,
                fv.unit,
                fv.fee_key_id,
-               fk.name
+               fk.name fee_key_name
         from fee_value fv
                  left join fee_key fk on fv.fee_key_id = fk.id and fk.is_deleted = 0
         where fv.is_deleted = 0
