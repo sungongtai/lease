@@ -3,9 +3,9 @@
 后台：http://47.236.134.169:8080  
 • 技术栈：
 前端: Vue3  
-后端: Spring Boot, Spring MVC, MyBatis-Plus. JWT  
-数据库：MySQL、Redis,minio  
-其他：Nginx、阿里云 SMS、Linux  
+后端: Spring Boot, Spring MVC, MyBatis-Plus, JWT  
+数据库：MySQL,Redis,minio  
+其他：Nginx,阿里云SMS,Linux  
 项目亮点：  
 • 功能实现：
 完成移动端和管理端不同功能：移动端实现用户注册、登录（验证码+短信验证）、查询、预约看房、在线签约与个人中心
